@@ -16,7 +16,7 @@
 /* 🌙 Тёмная тема */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f0f10;
+    --background: #5b5b85;
     --foreground: #ececec;
     --surface: #1a1a1c;
     --border: #2c2c2f;

@@ -1,9 +1,11 @@
 // src/app/layout.tsx
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+
+import Header from "@/components/Header";
+import Services from "@/components/Services";
+import Footer from "@/components/Footer";
 
 const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
@@ -19,6 +21,10 @@ export const metadata: Metadata = {
   },
   description:
     "Гермес-Сервис — автосервис в Санкт-Петербурге. Шиномонтаж, кузовной ремонт, покраска, техническое обслуживание, электрика и восстановление после ДТП.",
+  metadataBase: new URL("https://hermesto.ru"),
+  alternates: {
+    canonical: "https://hermesto.ru",
+  },
   keywords: [
     "автосервис",
     "HermesTO",
@@ -31,7 +37,6 @@ export const metadata: Metadata = {
     "ремонт авто",
     "СТО",
   ],
-  metadataBase: new URL("https://hermesto.ru"), // потом поменяешь на реальный домен
   openGraph: {
     type: "website",
     url: "https://hermesto.ru",
@@ -40,8 +45,9 @@ export const metadata: Metadata = {
       "Полный комплекс услуг: шиномонтаж, кузовной ремонт, покраска, детейлинг, техобслуживание и восстановление после ДТП.",
     siteName: "Гермес-Сервис автосервис",
   },
-  alternates: {
-    canonical: "https://hermesto.ru",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
   },
 };
 
@@ -54,7 +60,8 @@ export default function RootLayout({
     <html lang="ru" className={roboto.variable}>
       <body>
         <Header />
-        {children}
+        <main className="pt-[96px]">{children}</main>
+        <Services />
         <Footer />
       </body>
     </html>
