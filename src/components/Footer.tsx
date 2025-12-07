@@ -3,141 +3,149 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F2F2F4] text-[var(--foreground)] mt-14 border-t border-gray-300">
+    <footer
+      className="
+        bg-(--surface-strong)
+        text-(--foreground)
+        border-t border-(--border)
+        mt-20
+        transition-colors duration-300
+      "
+    >
       <div
         className="
           max-w-[1300px]
           mx-auto
           px-6
-          py-7
-          grid
-          grid-cols-1
-          md:grid-cols-2
-          lg:grid-cols-4
-          gap-8
+          py-10
+          grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+          gap-10
           text-sm
         "
       >
-        {/* 1 — ЛОГО + ОПИСАНИЕ */}
-        <div className="flex flex-col gap-2.5">
+        {/* ЛОГО + ОПИСАНИЕ */}
+        <div className="flex flex-col gap-3">
           <Image
             src="/logo.svg"
             alt="HermesTO logo"
             width={62}
             height={62}
-            className="object-contain"
+            className="opacity-90"
           />
 
-          <p className="text-gray-600 leading-[1.3] max-w-[220px] text-xs">
-            Гермес-Сервис — автосервис в Санкт-Петербурге. Профессиональный
-            ремонт, обслуживание, кузовные работы и шиномонтаж.
+          <p className="opacity-70 leading-[1.35] max-w-[240px]">
+            Гермес-Сервис — современный автосервис в Санкт-Петербурге.
+            Профессиональный ремонт, обслуживание, кузовные работы и шиномонтаж.
           </p>
         </div>
 
-        {/* 2 — НАВИГАЦИЯ */}
+        {/* НАВИГАЦИЯ */}
         <div>
-          <h3 className="text-[15px] font-semibold mb-2.5">Навигация</h3>
-          <ul className="flex flex-col gap-1 text-gray-700 text-[13px]">
+          <h3 className="text-[15px] font-semibold mb-3">Навигация</h3>
+          <ul className="flex flex-col gap-1 opacity-80">
             <li>
-              <Link href="/" className="hover:opacity-60">
+              <Link className="hover:opacity-100 transition" href="/">
                 Главная
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:opacity-60">
+              <Link className="hover:opacity-100 transition" href="/services">
                 Услуги
               </Link>
             </li>
             <li>
-              <Link href="/contacts" className="hover:opacity-60">
+              <Link className="hover:opacity-100 transition" href="/contacts">
                 Контакты
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:opacity-60">
+              <Link className="hover:opacity-100 transition" href="/about">
                 О нас
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* 3 — КОНТАКТЫ */}
+        {/* КОНТАКТЫ */}
         <div>
-          <h3 className="text-[15px] font-semibold mb-2.5">Контакты</h3>
+          <h3 className="text-[15px] font-semibold mb-3">Контакты</h3>
 
-          <p className="text-gray-700 mb-1 text-[13px]">Телефоны:</p>
+          <a
+            className="block opacity-80 hover:opacity-100 transition"
+            href="tel:+79633000650"
+          >
+            +7 (963) 300-06-50
+          </a>
+          <a
+            className="block opacity-80 mt-1 hover:opacity-100 transition"
+            href="tel:+79112186175"
+          >
+            +7 (911) 218-61-75
+          </a>
 
-          <div className="flex flex-col gap-0.5 text-[13px]">
-            <a href="tel:+79633000650" className="hover:opacity-60">
-              +7 (963) 300-06-50
-            </a>
+          <h3 className="text-[15px] font-semibold mt-4 mb-2">Мы в соцсетях</h3>
 
-            <a href="tel:+79112186175" className="hover:opacity-60">
-              +7 (911) 218-61-75
-            </a>
-          </div>
-
-          <p className="text-gray-700 mt-3 mb-1 text-[13px]">Мы в соцсетях:</p>
-
-          <div className="flex items-center gap-2.5">
+          <div className="flex gap-3">
             <a
               href="https://vk.com/club230725340"
               target="_blank"
-              aria-label="Мы ВКонтакте"
+              className="opacity-80 hover:opacity-100 transition"
             >
-              <Image src="/icons/vk.svg" width={22} height={22} alt="VK" />
+              <Image src="/icons/vk.svg" alt="VK" width={24} height={24} />
             </a>
 
             <a
-              href="https://wa.me/79633000650?text=Обращение+из+Яндекс+Карт%0AЗдравствуйте!+Меня+заинтересовало+ваше+предложение"
+              href="https://wa.me/79633000650"
               target="_blank"
-              aria-label="Написать в WhatsApp"
+              className="opacity-80 hover:opacity-100 transition"
             >
               <Image
                 src="/icons/whatsapp.svg"
-                width={22}
-                height={22}
                 alt="WhatsApp"
+                width={24}
+                height={24}
               />
             </a>
           </div>
         </div>
 
-        {/* 4 — АДРЕС + ГРАФИК */}
+        {/* АДРЕС */}
         <div>
-          <h3 className="text-[15px] font-semibold mb-2.5">Адрес</h3>
+          <h3 className="text-[15px] font-semibold mb-3">Адрес</h3>
 
           <a
-            href="https://yandex.ru/maps/?text=Малая%20Балканская%2059%201Б%20Санкт-Петербург"
+            href="https://yandex.ru/maps/?text=Малая%20Балканская%2059%201Б"
+            className="
+              flex gap-2 items-start
+              opacity-80 hover:opacity-100 transition
+              leading-[1.35]
+            "
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-2 text-gray-600 hover:opacity-70 transition text-[13px] leading-[1.3]"
           >
             <Image
               src="/icons/map-pin.svg"
               width={18}
               height={18}
-              alt="Адрес"
-              className="mt-[2px] opacity-80"
+              alt="Map"
+              className="mt-[2px]"
             />
-
-            <span>
-              Малая Балканская ул., 59, корп. 1Б
-              <br />
-              Санкт-Петербург
-            </span>
+            Малая Балканская ул., 59, корп. 1Б
+            <br />
+            Санкт-Петербург
           </a>
 
-          <p className="text-gray-700 mt-3 mb-1 text-[13px]">График работы:</p>
-
-          <div className="text-gray-600 text-[13px] leading-[1.25]">
-            Пн–Вс: 10:00–20:00
-          </div>
+          <p className="opacity-70 mt-3 text-[13px]">Пн–Вс: 10:00–20:00</p>
         </div>
       </div>
 
-      {/* НИЖНЯЯ ПОЛОСА */}
-      <div className="border-t border-gray-300 py-2.5 text-center text-[11px] text-gray-600">
+      {/* Нижняя полоса */}
+      <div
+        className="
+          border-t border-(--border)
+          py-3 text-center text-[11px] opacity-70
+        "
+      >
         © {new Date().getFullYear()} Гермес-Сервис. Все права защищены.
       </div>
     </footer>

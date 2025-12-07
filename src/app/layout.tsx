@@ -1,10 +1,9 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
-import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 
 const roboto = Roboto({
@@ -27,6 +26,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     "автосервис",
+    "Гермес-Сервис",
     "HermesTO",
     "шиномонтаж",
     "кузовной ремонт",
@@ -51,17 +51,43 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+/* ============================================================
+   🌙 ДОБАВЛЯЕМ ТУТ ГЛОБАЛЬНЫЙ СКРИПТ ТЕМЫ (до рендера React)
+============================================================ */
+export function Head() {
+  return (
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var saved = localStorage.getItem('theme');
+                var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = saved ? saved : (systemDark ? 'dark' : 'light');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            })();
+          `,
+        }}
+      />
+    </>
+  );
+}
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={roboto.variable}>
       <body>
         <Header />
-        <main className="pt-[96px]">{children}</main>
-        <Services />
+        {/* Отступ под фиксированный header */}
+        <main className="pt-[96px] bg-[var(--background)] text-[var(--foreground)]">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

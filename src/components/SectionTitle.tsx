@@ -1,3 +1,5 @@
+// src/components/SectionTitle.tsx
+
 interface SectionTitleProps {
   children: React.ReactNode;
   className?: string;
@@ -9,11 +11,7 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <h2
-      className={`
-        text-3xl md:text-4xl font-bold text-center 
-        text-gray-900 mb-12
-        ${className}
-      `}
+      className={`text-2xl md:text-3xl font-semibold text-gray-900 mb-6 ${className}`}
     >
       {children}
     </h2>

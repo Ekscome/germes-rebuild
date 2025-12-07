@@ -1,26 +1,44 @@
+// src/components/Advantages.tsx
+
+import SectionTitle from "@/components/SectionTitle";
+
+const items = [
+  {
+    title: "Кузовной ремонт любой сложности",
+    text: "Восстанавливаем геометрию кузова, работаем с серьёзными повреждениями после ДТП.",
+  },
+  {
+    title: "Честная смета и сроки",
+    text: "Согласовываем работы и стоимость до начала ремонта. Без скрытых доплат.",
+  },
+  {
+    title: "Современное оборудование",
+    text: "Камерная покраска, профессиональные материалы и проверенные технологии.",
+  },
+  {
+    title: "Удобное расположение",
+    text: "Санкт-Петербург, Фрунзенский район. Рядом парковка для клиентов.",
+  },
+];
+
 export default function Advantages() {
-  const items = [
-    {
-      title: "5+ лет опыта",
-      desc: "Профессиональные мастера по ремонту и детейлингу.",
-    },
-    {
-      title: "Современное оборудование",
-      desc: "Работаем на сертифицированных системах.",
-    },
-    { title: "Гарантия", desc: "Гарантируем качество всех выполненных работ." },
-  ];
-
   return (
-    <section className="py-16 bg-white">
+    <section className="bg-[var(--background)] py-10 md:py-14 border-b border-default">
       <div className="max-w-[1300px] mx-auto px-6">
-        <h2 className="text-3xl font-semibold mb-10">Почему выбирают нас</h2>
+        <SectionTitle className="mb-8">
+          Почему выбирают Гермес-Сервис
+        </SectionTitle>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {items.map((item, i) => (
-            <div key={i} className="p-6 bg-gray-50 rounded-xl border">
-              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-sm">
+          {items.map((item) => (
+            <div
+              key={item.title}
+              className="bg-[var(--surface)] border border-default rounded-xl p-4 shadow-sm"
+            >
+              <h3 className="font-semibold mb-2 text-[15px]">{item.title}</h3>
+              <p className="text-gray-700 text-[13px] leading-[1.35]">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>
