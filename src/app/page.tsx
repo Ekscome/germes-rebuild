@@ -1,18 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import Services from "@/components/home/Services";
 import Works from "@/components/home/Works";
 import AboutPage from "@/components/home/AboutPage";
-import ContactCTA from "@/components/home/ContactCTA";
+import LocationBlock from "@/components/home/LocationBlock";
 
 export default function HomePage() {
   return (
-    <main className="bg-(--background) text-(--foreground)" id="top">
-      {/* ====================== HERO С ФОНОМ ====================== */}
-      <section className="relative pt-32 pb-24 md:pb-32 min-h-[520px] flex items-center">
-        {/* Фон */}
+    <main className="bg-[var(--background)] text-[var(--foreground)]" id="top">
+      {/* HERO */}
+      <section
+        id="hero"
+        className="relative pt-32 pb-24 md:pb-32 min-h-[520px] flex items-center"
+      >
         <div className="absolute inset-0">
           <Image
             src="/hero/painting-room.jpg"
@@ -24,10 +25,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
-        {/* Контент */}
         <div className="relative w-full">
           <div className="max-w-[1300px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
-            {/* Текст */}
             <div className="max-w-[650px] text-white">
               <p className="uppercase tracking-[0.16em] text-sm text-gray-300 mb-3">
                 Кузовной ремонт и покраска автомобиля
@@ -40,45 +39,44 @@ export default function HomePage() {
 
               <p className="text-[17px] text-gray-200 mb-8">
                 Локальная покраска бамперов и крыши, ремонт вмятин без покраски,
-                замена и тонировка стёкол, полировка с нанесением керамики,
-                антихром, оклейка элементов и независимая экспертиза — всё в
-                одном сервисе.
+                замена и тонировка стёкол, полировка, керамика, антихром,
+                оклейка элементов и независимая экспертиза — всё в одном
+                сервисе.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="#contacts"
-                  className="px-7 py-3 bg-(--accent) hover:bg-(--accent-dark) transition rounded-lg text-black font-semibold text-[15px]"
+                  className="px-7 py-3 bg-[var(--accent)] hover:bg-[var(--accent-dark)] transition rounded-lg text-black font-semibold text-[15px]"
                 >
                   Записаться в сервис
                 </a>
               </div>
             </div>
 
-            {/* Пустой блок для баланса */}
             <div className="hidden md:block w-[320px]" />
           </div>
         </div>
       </section>
 
-      {/* ====================== УСЛУГИ ====================== */}
+      {/* УСЛУГИ */}
       <section id="services">
         <Services />
       </section>
 
-      {/* ====================== НАШИ РАБОТЫ ====================== */}
+      {/* НАШИ РАБОТЫ */}
       <section id="works">
         <Works />
       </section>
 
-      {/* ====================== ОТЗЫВЫ ====================== */}
+      {/* О НАС / ОТЗЫВЫ */}
       <section id="about">
         <AboutPage />
       </section>
 
-      {/* ====================== МЕСТОПОЛОЖЕНИЕ / КОНТАКТЫ ====================== */}
+      {/* КОНТАКТЫ / КАРТА */}
       <section id="contacts">
-        <ContactCTA />
+        <LocationBlock />
       </section>
     </main>
   );

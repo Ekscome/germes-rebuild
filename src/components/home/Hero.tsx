@@ -1,4 +1,4 @@
-<section className="relative h-[80vh] min-h-[600px] flex items-center">
+<section className="relative py-20">
   {/* ФОН */}
   <div className="absolute inset-0">
     <img
@@ -6,12 +6,11 @@
       alt="Малярная камера"
       className="w-full h-full object-cover"
     />
-
     <div className="absolute inset-0 bg-black/45"></div>
   </div>
 
   {/* КОНТЕНТ */}
-  <div className="relative max-w-[1300px] mx-auto px-6">
+  <div className="relative max-w-[1300px] mx-auto px-6 flex flex-col">
     <p className="text-gray-300 uppercase tracking-widest text-sm mb-4">
       Кузовной ремонт и покраска автомобиля
     </p>
@@ -25,12 +24,27 @@
       оклейка, антихром и независимая экспертиза — всё в одном месте.
     </p>
 
-    <div className="flex gap-4">
-      <button className="px-6 py-3 bg-[var(--accent)] text-white rounded-lg font-semibold">
+    {/* КНОПКА */}
+    <div className="w-full flex justify-center md:justify-start">
+      <button
+        className="
+    bg-[var(--accent)]
+    text-black font-semibold
+    rounded-lg
+    px-6 py-3
+    w-full sm:w-auto
+    flex items-center justify-center
+    text-center
+    leading-none
+    tracking-tight
+
+    transition-all duration-200
+    hover:brightness-[1.08]
+    hover:shadow-[0_0_20px_rgba(255,193,7,0.4)]
+    active:scale-[0.97]
+  "
+      >
         Записаться в сервис
-      </button>
-      <button className="px-6 py-3 border border-white/50 text-white rounded-lg font-semibold">
-        Оценить стоимость по фото
       </button>
     </div>
   </div>

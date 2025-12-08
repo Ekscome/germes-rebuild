@@ -1,81 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useSyncExternalStore } from "react";
-
-// ======== Синхронизация темы (как в Header) ========
-
-function subscribe(callback: () => void) {
-  window.addEventListener("storage", callback);
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", callback);
-  return () => {
-    window.removeEventListener("storage", callback);
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .removeEventListener("change", callback);
-  };
-}
-
-function getSnapshot() {
-  if (typeof document === "undefined") return "light";
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
-}
-
-function getServerSnapshot() {
-  return "light";
-}
 
 export default function Footer() {
-  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-
   return (
     <footer
       className="
-        bg-(--surface-strong)
-        text-(--foreground)
-        border-t border-(--border)
+        bg-[var(--surface-strong)]
+        text-[var(--foreground)]
+        border-t border-[var(--border)]
         mt-20
         transition-colors duration-300
       "
     >
       <div
         className="
-    max-w-[1300px]
-    mx-auto
-    px-6
-    py-6                /* ← было 10 */
-    grid
-    grid-cols-2
-    md:grid-cols-2
-    lg:grid-cols-4
-    gap-6               /* ← было 10 */
-    text-[13px]         /* ← было text-sm */
-  "
+          max-w-[1300px]
+          mx-auto
+          px-6
+          py-6
+          grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4
+          gap-6
+          text-[13px]
+        "
       >
         {/* ЛОГО + ОПИСАНИЕ */}
         <div className="flex flex-col gap-3">
-          {/* === Смена логотипа по теме === */}
-          {theme === "light" ? (
-            <Image
-              src="/logo/logotrans-light.png"
-              alt="HermesTO logo"
-              width={80}
-              height={80}
-              className="opacity-90"
-            />
-          ) : (
-            <Image
-              src="/logo/logotrans-dark.png"
-              alt="HermesTO logo dark"
-              width={80}
-              height={80}
-              className="opacity-90"
-            />
-          )}
-
+          <Image
+            src="/logo/logotrans-light.png"
+            alt="HermesTO logo"
+            width={80}
+            height={80}
+            className="opacity-90"
+          />
           <p className="opacity-70 leading-[1.35] max-w-[240px]">
             Гермес-Сервис — профессиональный ремонт, обслуживание, кузовные
             работы и шиномонтаж.
@@ -136,7 +93,6 @@ export default function Footer() {
             >
               <Image src="/icons/vk.svg" alt="VK" width={24} height={24} />
             </a>
-
             <a
               href="https://wa.me/79633000650"
               target="_blank"
@@ -167,7 +123,7 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/icons/pindrop.svg"
+              src="/icons/map-pin.svg"
               width={18}
               height={18}
               alt="Map"
@@ -185,7 +141,7 @@ export default function Footer() {
       {/* Нижняя полоса */}
       <div
         className="
-          border-t border-(--border)
+          border-t border-[var(--border)]
           py-3 text-center text-[11px] opacity-70
         "
       >

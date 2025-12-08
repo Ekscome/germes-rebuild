@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // ← ВАЖНО
+  output: "export",
+
   images: {
-    unoptimized: true, // картинки без встроенной оптимизации Next.js
+    unoptimized: true, // обязательно для статики, иначе ошибка
   },
-  trailingSlash: true, // чтобы пути работали на хостинге
+
+  trailingSlash: true, // желательно для reg.ru
 };
 
 module.exports = nextConfig;
