@@ -5,7 +5,7 @@ import { services } from "./servicesData";
 
 export default function Services() {
   return (
-    <section className="py-20">
+    <section id="services" className="py-20">
       <div className="max-w-[1300px] mx-auto px-6">
         <h2 className="text-3xl font-semibold mb-10 text-center">
           Наши услуги

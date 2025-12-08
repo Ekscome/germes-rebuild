@@ -5,14 +5,19 @@ import "@/styles/globals.css";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CookiesBanner from "@/components/CookiesBanner";
 
+/* =============================
+   🎨 Подключение шрифта Roboto
+============================= */
 const roboto = Roboto({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "700"],
+  subsets: ["cyrillic", "latin"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-roboto",
 });
 
+/* =============================
+   🏷️ SEO и OpenGraph настройки
+============================= */
 export const metadata: Metadata = {
   title: {
     default:
@@ -52,45 +57,40 @@ export const metadata: Metadata = {
   },
 };
 
-/* ============================================================
-   🌙 ДОБАВЛЯЕМ ТУТ ГЛОБАЛЬНЫЙ СКРИПТ ТЕМЫ (до рендера React)
-============================================================ */
-export function Head() {
-  return (
-    <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              try {
-                var saved = localStorage.getItem('theme');
-                var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var theme = saved ? saved : (systemDark ? 'dark' : 'light');
-                if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (e) {}
-            })();
-          `,
-        }}
-      />
-    </>
-  );
-}
+/* =============================
+   🌙 Тема до загрузки React
+   — корректная реализация
+============================= */
+const themeInitScript = `
+(function() {
+  try {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } catch (_) {}
+})();
+`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" className={roboto.variable}>
-      <body>
+    <html lang="ru" className={`${roboto.variable} font-sans`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+
+      <body className="bg-[var(--background)] text-[var(--foreground)]">
         <Header />
-        {/* Отступ под фиксированный header */}
-        <main className="pt-[96px] bg-[var(--background)] text-[var(--foreground)]">
-          {children}
-        </main>
+
+        {/* Отступ для фиксированного header */}
+        <main className="pt-[96px]">{children}</main>
+
         <Footer />
-        <CookiesBanner />
+        {/* <CookiesBanner /> */}
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div id="about" className="min-h-screen bg-[var(--background)]">
       <div className="max-w-[1300px] mx-auto px-6 pt-10 pb-16">
         {/* ===== Заголовок ===== */}
         <h1 className="text-2xl md:text-3xl font-semibold mb-10 text-center">

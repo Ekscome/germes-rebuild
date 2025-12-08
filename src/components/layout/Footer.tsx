@@ -87,24 +87,24 @@ export default function Footer() {
           <h3 className="text-[15px] font-semibold mb-3">Навигация</h3>
           <ul className="flex flex-col gap-1 opacity-80">
             <li>
-              <Link className="hover:opacity-100 transition" href="/">
+              <a className="hover:opacity-100 transition" href="#top">
                 Главная
-              </Link>
+              </a>
             </li>
             <li>
-              <Link className="hover:opacity-100 transition" href="/services">
+              <a className="hover:opacity-100 transition" href="#services">
                 Услуги
-              </Link>
+              </a>
             </li>
             <li>
-              <Link className="hover:opacity-100 transition" href="/contacts">
-                Контакты
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:opacity-100 transition" href="/about">
+              <a className="hover:opacity-100 transition" href="#about">
                 О нас
-              </Link>
+              </a>
+            </li>
+            <li>
+              <a className="hover:opacity-100 transition" href="#contacts">
+                Контакты
+              </a>
             </li>
           </ul>
         </div>
@@ -167,7 +167,7 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/icons/map-pin.svg"
+              src="/icons/pindrop.svg"
               width={18}
               height={18}
               alt="Map"

@@ -6,11 +6,10 @@ import Services from "@/components/home/Services";
 import Works from "@/components/home/Works";
 import AboutPage from "@/components/home/AboutPage";
 import ContactCTA from "@/components/home/ContactCTA";
-// import ContactsPage from "@/components/home/ContactPage";
 
 export default function HomePage() {
   return (
-    <main className="bg-(--background) text-(--foreground)">
+    <main className="bg-(--background) text-(--foreground)" id="top">
       {/* ====================== HERO С ФОНОМ ====================== */}
       <section className="relative pt-32 pb-24 md:pb-32 min-h-[520px] flex items-center">
         {/* Фон */}
@@ -47,32 +46,40 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contacts"
+                <a
+                  href="#contacts"
                   className="px-7 py-3 bg-(--accent) hover:bg-(--accent-dark) transition rounded-lg text-black font-semibold text-[15px]"
                 >
                   Записаться в сервис
-                </Link>
+                </a>
               </div>
             </div>
 
-            {/* Пустой блок для баланса на десктопе (можно потом заменить чем-то) */}
+            {/* Пустой блок для баланса */}
             <div className="hidden md:block w-[320px]" />
           </div>
         </div>
       </section>
 
-      {/* ====================== УСЛУГИ (ВАШИ КАРТОЧКИ) ====================== */}
-      <Services />
+      {/* ====================== УСЛУГИ ====================== */}
+      <section id="services">
+        <Services />
+      </section>
 
-      {/* ====================== НАШИ РАБОТЫ (ВАШИ КАРТОЧКИ) ====================== */}
-      <Works />
+      {/* ====================== НАШИ РАБОТЫ ====================== */}
+      <section id="works">
+        <Works />
+      </section>
 
       {/* ====================== ОТЗЫВЫ ====================== */}
-      <AboutPage />
+      <section id="about">
+        <AboutPage />
+      </section>
 
-      {/* ====================== МЕСТОПОЛОЖЕНИЕ ====================== */}
-      <ContactCTA />
+      {/* ====================== МЕСТОПОЛОЖЕНИЕ / КОНТАКТЫ ====================== */}
+      <section id="contacts">
+        <ContactCTA />
+      </section>
     </main>
   );
 }

@@ -100,34 +100,29 @@ export default function Header() {
 
           {/* Меню */}
           <nav className="flex items-center gap-8 text-[17px] font-medium">
-            <Link href="/" className="hover:opacity-70 transition">
+            <a href="#top" className="hover:opacity-70 transition">
               Главная
-            </Link>
-            <Link href="/services" className="hover:opacity-70 transition">
+            </a>
+            <a href="#services" className="hover:opacity-70 transition">
               Услуги
-            </Link>
-            <Link href="/contacts" className="hover:opacity-70 transition">
-              Контакты
-            </Link>
-            <Link href="/about" className="hover:opacity-70 transition">
+            </a>
+            <a href="#about" className="hover:opacity-70 transition">
               О нас
-            </Link>
+            </a>
+            <a href="#contacts" className="hover:opacity-70 transition">
+              Контакты
+            </a>
           </nav>
         </div>
 
         {/* Кнопка */}
         <div>
-          <Link
-            href="/contacts"
-            className="
-              bg-[var(--accent)]
-              hover:bg-[var(--accent-dark)]
-              transition text-black font-semibold
-              py-2 px-6 rounded-lg
-            "
+          <a
+            href="#contacts"
+            className="bg-[var(--accent)] hover:bg-[var(--accent-dark)] transition text-black font-semibold py-2 px-6 rounded-lg"
           >
             Записаться
-          </Link>
+          </a>
         </div>
 
         {/* Соцсети + телефоны + тема */}
@@ -249,31 +244,26 @@ export default function Header() {
             shadow-inner
           "
         >
-          <Link href="/" onClick={() => setMenuOpen(false)}>
+          <a href="#top" onClick={() => setMenuOpen(false)}>
             Главная
-          </Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)}>
+          </a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>
             Услуги
-          </Link>
-          <Link href="/contacts" onClick={() => setMenuOpen(false)}>
-            Контакты
-          </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
+          </a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>
             О нас
-          </Link>
+          </a>
+          <a href="#contacts" onClick={() => setMenuOpen(false)}>
+            Контакты
+          </a>
 
-          <Link
-            href="/contacts"
+          <a
+            href="#contacts"
             onClick={() => setMenuOpen(false)}
-            className="
-              bg-[var(--accent)]
-              hover:bg-[var(--accent-dark)]
-              transition text-black text-center
-              font-semibold py-3 rounded-lg mt-2
-            "
+            className="bg-[var(--accent)] hover:bg-[var(--accent-dark)] transition text-black text-center font-semibold py-3 rounded-lg mt-2"
           >
             Записаться
-          </Link>
+          </a>
         </div>
       )}
     </header>
