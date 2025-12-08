@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import CookiesBanner from "@/components/CookiesBanner";
 
 const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
+        <CookiesBanner />
       </body>
     </html>
   );

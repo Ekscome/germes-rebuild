@@ -1,0 +1,65 @@
+/* ======================================
+   🎨 DESIGN TOKENS (HermesTO)
+   Цвета, шрифты, тени, скругления, размеры
+====================================== */
+
+/* ================================
+   🌞 LIGHT THEME — DEFAULT
+================================ */
+:root {
+  /* ----- Base UI Colors ----- */
+  --background: #f7f7f8;
+  --foreground: #1a1a1a;
+
+  --surface-weak: #ffffff;
+  --surface-strong: #ebebed;
+
+  --border: #d6d6d6;
+
+  /* ----- Brand Colors ----- */
+  --accent: #ffb400;
+  --accent-dark: #dfa000;
+
+  --hermes-graphite: #1a1a1a;
+  --hermes-light: #f5f5f5;
+
+  /* ----- Typography ----- */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #6f6f6f;
+
+  --font-sans: var(--font-roboto);
+
+  /* ----- Radius ----- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ----- Shadows ----- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ================================
+   🌙 DARK THEME
+================================ */
+.dark {
+  --background: #1a1a1c;
+  --foreground: #ececec;
+
+  --surface-weak: #242426;
+  --surface-strong: #2e2e31;
+
+  --border: #3b3b3f;
+
+  --accent: #ffb400;
+  --accent-dark: #c89500;
+
+  --text-primary: #ececec;
+  --text-secondary: #b8b8b8;
+  --text-tertiary: #8a8a8a;
+
+  --font-sans: var(--font-roboto);
+}

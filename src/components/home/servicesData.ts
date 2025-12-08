@@ -1,0 +1,86 @@
+export const services = [
+  {
+    title: "Кузовной ремонт любой сложности",
+    image: "/services/body-repair.jpg",
+    desc: "",
+    price: "от 10 000",
+  },
+  {
+    title: "Покраска",
+    image: "/services/painting-full.jpg",
+    desc: "",
+    price: "40 000",
+  },
+  {
+    title: "Частичная покраска бампера",
+    image: "/services/local-bumper-paint.jpg",
+    desc: "",
+    price: "4 000",
+  },
+  {
+    title: "Частичная покраска крыши",
+    image: "/services/local-roof-paint.jpg",
+    desc: "",
+    price: "4 500",
+  },
+  {
+    title: "Замена лобовых стёкол",
+    image: "/services/glass-replacement.jpg",
+    desc: "Профессиональная замена любых лобовый, задних, и боковых стекол. Срезаем стекла с сохранением для покраски автомобиля. Большой выбор фирм изготовителя. Минимальные сроки поставки",
+    price: "4 500",
+  },
+  {
+    title: "Тонировка стёкол",
+    image: "/services/tinting.jpg",
+    desc: "",
+    price: "2 000",
+  },
+  {
+    title: "Полировка фар",
+    image: "/services/headlight-polish.jpg",
+    desc: "",
+    price: "1 500",
+  },
+  {
+    title: "Полировка с нанесением керамики",
+    image: "/services/ceramic-polish.jpg",
+    desc: "",
+    price: "6 000",
+  },
+  {
+    title: "Ремонт фар любой сложности",
+    image: "/services/headlight-repair.jpg",
+    desc: "",
+    price: "2 500",
+  },
+  {
+    title: "Ремонт вмятин без покраски",
+    image: "/services/pdr.jpg",
+    desc: "",
+    price: "2 000",
+  },
+  {
+    title: "Оклейка автомобиля",
+    image: "/services/okleyka.jpg",
+    desc: "",
+    price: "7 000",
+  },
+  {
+    title: "Антихром",
+    image: "/services/antichrome.jpg",
+    desc: "",
+    price: "от 1 500",
+  },
+  {
+    title: "Ремонт безопасности",
+    image: "/services/safety-repair.jpg",
+    desc: "",
+    price: "8 000",
+  },
+  {
+    title: "Независимая экспертиза",
+    image: "/services/expertiza.jpg",
+    desc: "",
+    price: "от 5 000",
+  },
+];
