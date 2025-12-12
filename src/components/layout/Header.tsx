@@ -92,6 +92,9 @@ export default function Header() {
             <a href="#services" className="hover:opacity-70 transition">
               Услуги
             </a>
+            <a href="#works" className="hover:opacity-70 transition">
+              Наши работы
+            </a>
             <a href="#about" className="hover:opacity-70 transition">
               О нас
             </a>
@@ -213,6 +216,9 @@ export default function Header() {
           </a>
           <a href="#services" onClick={() => setMenuOpen(false)}>
             Услуги
+          </a>
+          <a href="#works" onClick={() => setMenuOpen(false)}>
+            Наши работы
           </a>
           <a href="#about" onClick={() => setMenuOpen(false)}>
             О нас
