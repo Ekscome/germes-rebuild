@@ -120,3 +120,14 @@ body {
 .animate-fade-in {
   animation: fade-in 0.35s ease-out;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+}

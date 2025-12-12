@@ -1,10 +1,15 @@
+import Image from "next/image";
+
 <section className="relative py-20">
   {/* ФОН */}
   <div className="absolute inset-0">
-    <img
+    <Image
       src="/hero/painting-room.jpg"
       alt="Малярная камера"
-      className="w-full h-full object-cover"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover"
     />
     <div className="absolute inset-0 bg-black/45"></div>
   </div>

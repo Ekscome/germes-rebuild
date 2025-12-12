@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function LocationBlock() {
   return (
-    <section id="contacts" className="mt-20">
+    <section id="contacts" className="py-20">
       <div className="max-w-[1300px] mx-auto px-6">
         {/* ===== Заголовок ===== */}
         <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center">
