@@ -1,8 +1,39 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
+/* ==========================================
+   Получаем текущую тему
+========================================== */
+function getCurrentTheme(): "light" | "dark" {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
 export default function Footer() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  /* === Отслеживаем смену темы === */
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setTheme(getCurrentTheme());
+    });
+
+    const observer = new MutationObserver(() => {
+      requestAnimationFrame(() => {
+        setTheme(getCurrentTheme());
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <footer
       className="
@@ -26,18 +57,31 @@ export default function Footer() {
       >
         {/* ЛОГО + ОПИСАНИЕ */}
         <div className="flex flex-col gap-3">
-          <Image
-            src="/logo/logotrans-light.png"
-            alt="HermesTO logo"
-            width={80}
-            height={80}
-            className="opacity-90"
-          />
+          {theme === "light" ? (
+            <Image
+              src="/logo/logotrans-light.png"
+              alt="HermesTO logo"
+              width={80}
+              height={80}
+              className="opacity-90"
+            />
+          ) : (
+            <Image
+              src="/logo/logotrans-dark.png"
+              alt="HermesTO logo dark"
+              width={80}
+              height={80}
+              className="opacity-90"
+            />
+          )}
+
           <p className="opacity-70 leading-[1.35] max-w-[240px]">
             Гермес-Сервис — профессиональный ремонт, обслуживание, кузовные
             работы и шиномонтаж.
           </p>
         </div>
+
+        {/* ---- дальше код без изменений ---- */}
 
         {/* НАВИГАЦИЯ */}
         <div>
@@ -123,11 +167,11 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/icons/map-pin.svg"
-              width={18}
-              height={18}
-              alt="Map"
-              className="mt-[2px]"
+              src="/icons/pindrop.svg"
+              alt="Адрес"
+              width={24}
+              height={24}
+              className="opacity-70 mt-1"
             />
             Малая Балканская ул., 59, корп. 1Б
             <br />

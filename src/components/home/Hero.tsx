@@ -12,7 +12,7 @@
   {/* КОНТЕНТ */}
   <div className="relative max-w-[1300px] mx-auto px-6 flex flex-col">
     <p className="text-gray-300 uppercase tracking-widest text-sm mb-4">
-      Кузовной ремонт и покраска автомобиля
+      Кузовной ремонт любой сложности на стапеле Siver K-210
     </p>
 
     <h1 className="text-3xl md:text-6xl font-bold text-white max-w-[700px] mb-6">

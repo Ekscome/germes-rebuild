@@ -5,6 +5,7 @@ import Script from "next/script";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookiesBanner from "@/components/CookiesBanner";
 
 const roboto = Roboto({
   subsets: ["cyrillic", "latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main className="pt-[96px]">{children}</main>
         <Footer />
+        <CookiesBanner />
       </body>
     </html>
   );
