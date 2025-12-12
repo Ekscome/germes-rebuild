@@ -1,146 +1,93 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { works } from "@/data/works";
 
-const works = [
-  { id: 1, image: "/works/work1.webp" },
-  { id: 2, image: "/works/work2.webp" },
-  { id: 3, image: "/works/work3.webp" },
-  { id: 6, image: "/works/work6.webp" },
-  { id: 7, image: "/works/work7.webp" },
-  { id: 8, image: "/works/work8.webp" },
-  { id: 9, image: "/works/work9.webp" },
-  { id: 4, image: "/works/work4.webp" },
-  { id: 10, image: "/works/work10.webp" },
-];
+const STEP = 9;
+const MAX = 18;
 
 export default function Works() {
-  const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState(0);
-
-  function openModal(index: number) {
-    setCurrent(index);
-    setOpen(true);
-  }
-
-  function closeModal() {
-    setOpen(false);
-  }
-
-  function prev() {
-    setCurrent((prev) => (prev === 0 ? works.length - 1 : prev - 1));
-  }
-
-  function next() {
-    setCurrent((prev) => (prev === works.length - 1 ? 0 : prev + 1));
-  }
-
-  // Листание клавиатурой
-  useEffect(() => {
-    function handleKey(e: KeyboardEvent) {
-      if (!open) return;
-
-      if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "Escape") closeModal();
-    }
-
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [open]);
+  const [visible, setVisible] = useState(STEP);
 
   return (
-    <>
-      {/* ========= СЕКЦИЯ НАШИ РАБОТЫ ========= */}
-      <section className="py-20 bg-(--background)">
-        <div className="max-w-[1300px] mx-auto px-6">
-          <h2 className="text-3xl font-semibold mb-10 text-center">
-            Наши работы
-          </h2>
+    <section className="py-24 bg-[var(--background)]">
+      <div className="max-w-[1300px] mx-auto px-6">
+        {/* ===== Заголовок ===== */}
+        <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center">
+          Наши работы
+        </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {works.map((item, index) => (
+        {/* ======================================================
+            ЕДИНАЯ БОЛЬШАЯ КАРТОЧКА (как About / Location)
+        ====================================================== */}
+        <div
+          className="
+            rounded-2xl
+            border border-[var(--border)]
+            shadow-lg
+            bg-[var(--surface)]
+            p-6
+            md:p-8
+            lg:p-10
+          "
+        >
+          {/* ===== СЕТКА РАБОТ ===== */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {works.slice(0, visible).map((item) => (
               <div
                 key={item.id}
-                onClick={() => openModal(index)}
                 className="
-                  group rounded-xl overflow-hidden border border-(--border)
-                  bg-(--surface) shadow-sm hover:shadow-xl transition cursor-pointer
+                  group relative
+                  rounded-2xl overflow-hidden
+                  border border-[var(--border)]
+                  bg-[var(--surface)]
+                  shadow-sm
                 "
               >
-                <div className="relative w-full h-[220px]">
+                <div className="relative h-[240px]">
                   <Image
                     src={item.image}
-                    alt="work"
+                    alt="Пример выполненной работы"
                     fill
-                    className="object-cover group-hover:scale-105 transition duration-300"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ========= МОДАЛЬНОЕ ОКНО ========= */}
-      {open && (
-        <div
-          className="
-            fixed inset-0 bg-black/80 backdrop-blur-sm z-[999]
-            flex items-center justify-center p-4
-          "
-          onClick={closeModal}
-        >
-          <div
-            className="relative max-w-4xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={works[current].image}
-              alt="work"
-              width={1600}
-              height={900}
-              className="rounded-lg shadow-xl w-full h-auto"
-            />
+          {/* ===== КНОПКИ ===== */}
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            {visible < MAX && (
+              <button
+                onClick={() => setVisible((v) => Math.min(v + STEP, MAX))}
+                className="
+                  px-6 py-3 rounded-xl
+                  bg-[var(--surface-strong)]
+                  border border-[var(--border)]
+                  hover:opacity-80 transition
+                "
+              >
+                Показать ещё
+              </button>
+            )}
 
-            {/* Листание */}
-            <button
-              onClick={prev}
+            <Link
+              href="/works"
               className="
-                absolute left-0 top-1/2 -translate-y-1/2
-                bg-black/40 hover:bg-black/60 text-white
-                px-4 py-3 rounded-r-xl transition
+                px-6 py-3 rounded-xl
+                border border-[var(--border)]
+                hover:bg-[var(--surface-strong)]
+                transition
               "
             >
-              ←
-            </button>
-
-            <button
-              onClick={next}
-              className="
-                absolute right-0 top-1/2 -translate-y-1/2
-                bg-black/40 hover:bg-black/60 text-white
-                px-4 py-3 rounded-l-xl transition
-              "
-            >
-              →
-            </button>
-
-            {/* Закрыть */}
-            <button
-              onClick={closeModal}
-              className="
-                absolute top-3 right-3 text-white
-                bg-black/40 hover:bg-black/60
-                px-3 py-1 rounded-lg text-lg
-              "
-            >
-              ✕
-            </button>
+              Все работы →
+            </Link>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 }
